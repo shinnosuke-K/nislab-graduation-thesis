@@ -5,4 +5,5 @@ read yn
 if [ $yn = "Y" ]; then
 	docker pull paperist/alpine-texlive-ja
 fi
+echo "done"
 

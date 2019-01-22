@@ -1,6 +1,7 @@
 #!bin/bash
 
-read --prompt="echo 'Dockerを起動してください. 起動できましたか? (Y/n):'" yn
+echo -n 'Dockerを起動してください. 起動できましたか? (Y/n):'
+read yn
 if [ $yn = "Y" ]; then
 	docker pull paperist/alpine-texlive-ja
 fi

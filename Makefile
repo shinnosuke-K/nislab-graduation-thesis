@@ -19,7 +19,7 @@ watch: ## when tex file changed, auto build
 	./bin/watcher -dotfiles=false \
 		-keepalive \
 		-cmd="make build" \
-		-list ./thesis.tex ./src/
+		-list ./thesis.tex
 
 watch-img: ## when img file is added, convert to eps file.
 	./bin/watcher -dotfiles=false \

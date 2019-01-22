@@ -1,5 +1,7 @@
 # graduation_thesis
 
+Mac用のNisLab卒業論文環境
+
 ## Usage
 
 `thesis.tex` というファイルに書いていってください
@@ -14,13 +16,13 @@ make install-dependency
 
 ## Auto Build by watching file
 
-これを実行するとtexファイルを監視して変更時にbuildしてくれます.
+これを実行するとtexファイルを監視して自動で変更時にbuildしてくれます.
 
 ```bash
 make watch
 ```
 
-これを実行すると `img/` を監視して画像ファイル追加時に `.eps` ファイルに変更してくれます.
+これを実行すると `img/` を監視して自動で画像ファイル追加時に `.eps` ファイルに変更してくれます.
 
 ```bash
 make watch-img

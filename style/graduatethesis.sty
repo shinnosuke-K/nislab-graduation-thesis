@@ -1,0 +1,177 @@
+%———————————————————————————————%
+%   graduatethesis.sty						         %
+%--------------------------------------------------------------%
+%   Style File for Graduate Thesis             			                     %
+%   at Network Information Systems Laboratory, Doshisha Univ.  	         %
+%--------------------------------------------------------------%
+%   Rev. 0.4.3 2005/02/10, Author: Hiroshi Hayakawa	       		         %
+%--------------------------------------------------------------%
+
+
+%--------------------------------------------------------------
+%インクルードするパッケージ
+%--------------------------------------------------------------
+\usepackage{./style/nislab}
+\usepackage{subfigure}
+
+%--------------------------------------------------------------
+%柱を出力しない
+%--------------------------------------------------------------
+\pagestyle{plain}
+
+%--------------------------------------------------------------
+%ページレイアウトの再定義（一段組のみ）
+%--------------------------------------------------------------
+\topmargin=-0.2cm
+\headheight=0cm
+\headsep=0cm  \footskip=0cm
+\oddsidemargin=-0.04cm \evensidemargin=-0.04cm
+\textheight=24.7cm  \textwidth=16.5cm
+\footskip=1cm
+\topmargin=-0.04cm
+
+%--------------------------------------------------------------
+%行送りの再定義
+%--------------------------------------------------------------
+\renewcommand{\baselinestretch}{1.2}
+
+%--------------------------------------------------------------
+%表紙
+%\advisor 指導教員
+%\department 学科
+%\entranceyear 入学年
+%\registernumber 学籍番号
+%--------------------------------------------------------------
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\entranceyear#1{\gdef\@entranceyear{#1}}
+\def\registernumber#1{\gdef\@registernumber{#1}}
+
+\renewcommand\maketitle{
+\newpage\null
+\vbox to 0.5\textheight{
+   \thispagestyle{empty}% ページ番号，ヘッダ，フッタをつけない
+\begin{minipage}{6in}
+\begin{center}
+\vspace*{1cm}
+
+{\huge 卒業論文}
+\vspace{5cm}
+
+{\Huge \baselineskip 1.0em \@title} \vfill
+\vspace{5.5cm plus 2cm minus 2.5cm}
+
+{\LARGE 同志社大学\hspace{0.5zw}理工学部\hspace{0.5zw}\@department}
+\vspace{3mm}
+
+{\LARGE \@entranceyear 年度\hspace{0.5zw}\@registernumber 番}
+\vspace{10mm}
+
+{\huge \@author}
+\vspace{10mm}
+
+{\LARGE 指導教員}
+\vspace{1mm}
+
+{\LARGE 情報システムデザイン学科}
+\vspace{1mm}
+
+{\LARGE ネットワーク情報システム研究室}
+\vspace{1mm}
+
+{\LARGE \@advisor}
+\vspace{10mm}
+
+{\Large \@date}
+\end{center}
+\end{minipage}
+}
+}
+
+
+%--------------------------------------------------------------
+%addkeywordsの定義 
+%--------------------------------------------------------------
+\def\addkeywords#1#2#3{
+\vspace{1cm}
+
+\hspace{1zw}{\large キーワード}\\
+{\large 1. #1，2. #2，3. #3}
+}
+
+%--------------------------------------------------------------
+%abstract環境の再定義
+%--------------------------------------------------------------
+\renewenvironment{abstract}
+{
+\thispagestyle{empty}
+
+\bigskip
+\begin{minipage}{15cm}
+\begin{center}
+\setlength{\parindent}{1ex}
+{
+	\begin{center}
+	\huge\bfseries 概要
+	\vspace{1cm}
+	\end{center}
+}
+\end{center}
+}
+{
+%%\vspace{1.5cm}
+
+%%\hspace{1zw}{\large キーワード}
+
+%%{\large 1. \@keyworda，2. \@keywordb，3. \@keywordc}
+%%\vspace{1cm}
+%%
+%%\begin{flushright}
+%%同志社大学\hspace{0.5zw}工学部\hspace{0.5zw}\@department
+%%\vspace{1zh}
+%%
+%%{\Large \@author}
+%%\end{flushright}
+\end{minipage}
+%%
+%%\newpage
+}
+
+%--------------------------------------------------------------
+%目次の再定義
+%--------------------------------------------------------------
+\setcounter{tocdepth}{2}%subsectionまで
+
+%--------------------------------------------------------------
+%enumerate環境における番号付けの再定義
+%--------------------------------------------------------------
+\renewcommand{\labelenumi}{（\theenumi）}
+
+%--------------------------------------------------------------
+%thebibrography環境の見出しを関連図書→参考文献に再定義
+%--------------------------------------------------------------
+\renewcommand{\bibname}{参考文献}
+
+%--------------------------------------------------------------
+%参考文献・参考文献引用の表記を情処スタイルに
+%--------------------------------------------------------------
+%参考文献
+\def\@biblabel#1{#1)}
+
+%参考文献引用
+\def\@cite#1{\textsuperscript{#1)}}
+
+%--------------------------------------------------------------
+%キャプションの図及び数式の番号付けの再定義
+%カウンタchapterが増えるとカウンタfigure，table，equationをリセット
+%--------------------------------------------------------------
+\def\thefigure{\thechapter.\arabic{figure}}
+\@addtoreset{figure}{chapter} 
+
+\def\thetable{\thechapter.\arabic{table}}
+\@addtoreset{table}{chapter} 
+
+\def\theequation{\thechapter.\arabic{equation}}
+\@addtoreset{equation}{chapter} 
+
+
